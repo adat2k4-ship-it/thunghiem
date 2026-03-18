@@ -4,18 +4,13 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-// Cấu hình kết nối MySQL cho InfinityFree
+// api/db-config.js
 const pool = mysql.createPool({
-  host: process.env.DB_HOST,              // Bỏ giá trị mặc định, lấy từ .env
-  user: process.env.DB_USER,              // Bỏ giá trị mặc định
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
+  host: process.env.DB_HOST || 'sql305.infinityfree.com',
+  user: process.env.DB_USER || 'if0_41418425',
+  password: process.env.DB_PASSWORD || 'h1zFcfQv4eE',
+  database: process.env.DB_NAME || 'if0_41418425_expense_manager',  // Sửa tên database
   port: process.env.DB_PORT || 3306,
-  waitForConnections: true,
-  connectionLimit: 5,
-  queueLimit: 0,
-  enableKeepAlive: true,
-  keepAliveInitialDelay: 0,
   charset: 'utf8mb4',
   timezone: '+07:00'
 });
